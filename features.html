@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Keunggulan Server — Starfall Network</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,14 @@
         </div>
       </a>
 
-      <ul class="nav-menu">
+      <!-- Tombol Hamburger untuk Mobile -->
+      <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Buka Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
         <li><a href="index.html" class="nav-link">Beranda</a></li>
         <li><a href="features.html" class="nav-link active">Keunggulan</a></li>
         <li><a href="store.html" class="nav-link">Rank Store</a></li>
