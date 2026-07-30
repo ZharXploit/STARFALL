@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
      3. COPY IP ADDRESS FUNCTIONALITY
      ========================================================================== */
   const ipTriggers = document.querySelectorAll('.ip-copy-trigger');
-  const SERVER_IP = 'play.starfallsmp.my.id';
+  const SERVER_IP = 'play.starfallsmp.my.id:25010';
 
   ipTriggers.forEach(btn => {
     btn.addEventListener('click', () => {
