@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (onlinePlayerCount) {
     async function updatePlayerCount() {
       try {
-        const response = await fetch('https://api.mcsrvstat.us/2/play.starfallsmp.my.id');
+        const response = await fetch('https://api.mcsrvstat.us/2/play.starfallsmp.my.id:25010');
         const data = await response.json();
 
         if (data && data.online) {
