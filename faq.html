@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ & Panduan — Starfall Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-notice">
+        <span class="live-dot"></span>
+        <span>STARFALL SMP v1.21+ — Survival Economy Season 2</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="Starfall Logo" class="brand-logo-img" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+        <div id="logoFallback" class="brand-icon-fallback" style="display:none;">SF</div>
+        <div>
+          <span class="brand-title">STARFALL</span>
+          <span class="brand-subtitle">MC NETWORK</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Beranda</a></li>
+        <li><a href="features.html" class="nav-link">Keunggulan</a></li>
+        <li><a href="store.html" class="nav-link">Rank Store</a></li>
+        <li><a href="faq.html" class="nav-link active">FAQ & Panduan</a></li>
+        <li><a href="contact.html" class="nav-link">Dukungan</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="Ganti Tema">
+          <span id="themeIcon">🌙</span>
+        </button>
+
+        <div class="ip-copy-btn ip-copy-trigger" title="Klik untuk Copy IP">
+          <div>
+            <div class="ip-text">play.starfallsmp.my.id</div>
+            <div class="ip-sub" id="onlinePlayerCount">● Memuat Pemain...</div>
+          </div>
+          <span>📋</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-banner">
+    <div class="container">
+      <h1>Pertanyaan Umum & Panduan</h1>
+      <p>Informasi seputar transaksi, aturan server, serta cara menggunakan rank kamu.</p>
+    </div>
+  </section>
+
+  <main class="content-section">
+    <div class="container" style="max-width:800px;">
+      
+      <div class="faq-box">
+        <div class="faq-header">
+          <span>Bagaimana cara melakukan pembayaran rank?</span>
+          <span class="faq-icon-toggle">+</span>
+        </div>
+        <div class="faq-body">
+          <p>Setelah kamu memilih rank di katalog Store dan mengisi Username Minecraft, tombol akan mengarahkan kamu langsung ke WhatsApp Admin. Admin akan memberikan QRIS atau nomor rekening tujuan.</p>
+        </div>
+      </div>
+
+      <div class="faq-box">
+        <div class="faq-header">
+          <span>Berapa lama proses pengaktifan rank?</span>
+          <span class="faq-icon-toggle">+</span>
+        </div>
+        <div class="faq-body">
+          <p>Proses aktivasi membutuhkan waktu sekitar 1 hingga 5 menit setelah bukti pembayaran dikirimkan ke WhatsApp Admin.</p>
+        </div>
+      </div>
+
+      <div class="faq-box">
+        <div class="faq-header">
+          <span>Metode pembayaran apa saja yang didukung?</span>
+          <span class="faq-icon-toggle">+</span>
+        </div>
+        <div class="faq-body">
+          <p>Kami menerima QRIS (BCA, Mandiri, BRI, Gopay, OVO, Dana, ShopeePay) serta Pulsa.</p>
+        </div>
+      </div>
+
+      <div class="faq-box">
+        <div class="faq-header">
+          <span>Apakah rank hilang jika season di-reset?</span>
+          <span class="faq-icon-toggle">+</span>
+        </div>
+        <div class="faq-body">
+          <p>Tidak! Semua rank yang dibeli berlaku permanen dan akan dibawa kembali saat pembukaan season baru.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-flex">
+      <div>
+        <strong style="color:var(--text-primary); font-family:var(--font-title);">STARFALL MC NETWORK</strong>
+        <p style="margin-top:4px;">Server Survival Economy Minecraft Terpercaya di Indonesia.</p>
+      </div>
+      <div>
+        <p>&copy; 2026 Starfall MC Network. Not affiliated with Mojang Studios / Microsoft.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="storeModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      <h2 style="font-family:var(--font-title); font-size:1.4rem; margin-bottom:4px; color:var(--text-primary);">Konfirmasi Pesanan</h2>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px;">Isi username Minecraft kamu sebelum lanjut ke WhatsApp Admin.</p>
+
+      <div class="summary-card">
+        <div class="summary-item">
+          <span>Item Rank:</span>
+          <strong id="modalRankName" style="color:var(--text-primary);">-</strong>
+        </div>
+        <div class="summary-item" style="margin-top:6px;">
+          <span>Total Harga:</span>
+          <strong id="modalRankPrice" style="color:var(--primary-cyan);">-</strong>
+        </div>
+      </div>
+
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="mcUsername">Username / In-Game Name (IGN)</label>
+          <input type="text" id="mcUsername" placeholder="Contoh: Alex_Craft99" autocomplete="off">
+          <div class="field-error-notice" id="usernameError"></div>
+        </div>
+
+        <button type="submit" class="btn-wa-submit">Lanjut Pembayaran via WhatsApp 🚀</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-notice" id="toastNotice"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

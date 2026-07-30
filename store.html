@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rank Store — Starfall Network</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-notice">
+        <span class="live-dot"></span>
+        <span>STARFALL SMP v1.21+ — Survival Economy Season 2</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="logo.png" alt="Starfall Logo" class="brand-logo-img" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+        <div id="logoFallback" class="brand-icon-fallback" style="display:none;">SF</div>
+        <div>
+          <span class="brand-title">STARFALL</span>
+          <span class="brand-subtitle">RANK STORE</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Beranda</a></li>
+        <li><a href="features.html" class="nav-link">Keunggulan</a></li>
+        <li><a href="store.html" class="nav-link active">Rank Store</a></li>
+        <li><a href="faq.html" class="nav-link">FAQ & Panduan</a></li>
+        <li><a href="contact.html" class="nav-link">Dukungan</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="Ganti Tema">
+          <span id="themeIcon">🌙</span>
+        </button>
+
+        <div class="ip-copy-btn ip-copy-trigger" title="Klik untuk Copy IP">
+          <div>
+            <div class="ip-text">play.starfallsmp.my.id</div>
+            <div class="ip-sub" id="onlinePlayerCount">● Memuat Pemain...</div>
+          </div>
+          <span>📋</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-banner">
+    <div class="container">
+      <h1>Katalog Rank & VIP Privileges</h1>
+      <p>Pilih paket privilese yang sesuai dengan kebutuhan petualangan kamu di Starfall MC.</p>
+    </div>
+  </section>
+
+  <main class="content-section">
+    <div class="container">
+      <div class="ranks-grid">
+        
+        <!-- Scout -->
+        <div class="rank-card">
+          <div class="rank-header">
+            <span style="font-size:0.7rem; font-weight:800; color:var(--text-muted); letter-spacing:1px;">ENTRY TIER</span>
+            <div class="rank-name">SCOUT</div>
+            <div class="rank-price">Rp 10.000</div>
+          </div>
+          <ul class="rank-features">
+            <li>⚡ <strong>Commands:</strong> /feed, /workbench</li>
+            <li>📦 Kit Scout Harian</li>
+            <li>🔒 2x Player Vaults (/pv)</li>
+            <li>🚩 5x Sethome</li>
+            <li>🛡️ 5.000 Claim Blocks</li>
+          </ul>
+          <button class="btn-buy-store buy-trigger" data-rank="Scout" data-price="Rp 10.000">Pilih Scout</button>
+        </div>
+
+        <!-- Peasant -->
+        <div class="rank-card">
+          <div class="rank-header">
+            <span style="font-size:0.7rem; font-weight:800; color:var(--text-muted); letter-spacing:1px;">POPULER</span>
+            <div class="rank-name">PEASANT</div>
+            <div class="rank-price">Rp 15.000</div>
+          </div>
+          <ul class="rank-features">
+            <li>⚡ <strong>Commands:</strong> /hat, /echest, /heal</li>
+            <li>📦 Kit Peasant Khusus</li>
+            <li>🔒 4x Player Vaults (/pv)</li>
+            <li>🚩 10x Sethome</li>
+            <li>🛡️ 10.500 Claim Blocks</li>
+          </ul>
+          <button class="btn-buy-store buy-trigger" data-rank="Peasant" data-price="Rp 15.000">Pilih Peasant</button>
+        </div>
+
+        <!-- Ascendant -->
+        <div class="rank-card">
+          <div class="rank-header">
+            <span style="font-size:0.7rem; font-weight:800; color:var(--text-muted); letter-spacing:1px;">RECOMMENDED</span>
+            <div class="rank-name">ASCENDANT</div>
+            <div class="rank-price">Rp 20.000</div>
+          </div>
+          <ul class="rank-features">
+            <li>⚡ <strong>Commands:</strong> /fly, /repair</li>
+            <li>📦 Kit Ascendant Senjata</li>
+            <li>🔒 6x Player Vaults (/pv)</li>
+            <li>🚩 15x Sethome</li>
+            <li>🛡️ 15.000 Claim Blocks</li>
+          </ul>
+          <button class="btn-buy-store buy-trigger" data-rank="Ascendant" data-price="Rp 20.000">Pilih Ascendant</button>
+        </div>
+
+        <!-- Celestial (FEATURED) -->
+        <div class="rank-card highlight">
+          <div class="rank-tag-featured">BEST SELLER</div>
+          <div class="rank-header">
+            <span style="font-size:0.7rem; font-weight:800; color:var(--accent-gold); letter-spacing:1px;">VIP FAVORIT</span>
+            <div class="rank-name">CELESTIAL</div>
+            <div class="rank-price">Rp 35.000</div>
+          </div>
+          <ul class="rank-features">
+            <li>⚡ <strong>Commands:</strong> /anvil, /grindstone, /nick</li>
+            <li>📦 Kit Celestial Legendaris</li>
+            <li>🔒 8x Player Vaults (/pv)</li>
+            <li>🚩 20x Sethome</li>
+            <li>🛡️ 25.000 Claim Blocks</li>
+          </ul>
+          <button class="btn-buy-store gold-btn buy-trigger" data-rank="Celestial" data-price="Rp 35.000">Beli Celestial</button>
+        </div>
+
+        <!-- Immortal -->
+        <div class="rank-card">
+          <div class="rank-header">
+            <span style="font-size:0.7rem; font-weight:800; color:var(--text-muted); letter-spacing:1px;">PRO TIER</span>
+            <div class="rank-name">IMMORTAL</div>
+            <div class="rank-price">Rp 50.000</div>
+          </div>
+          <ul class="rank-features">
+            <li>⚡ <strong>Commands:</strong> /repair all, /loom, /smithingtable</li>
+            <li>📦 Kit Immortal Full Armor</li>
+            <li>🔒 10x Player Vaults (/pv)</li>
+            <li>🚩 25x Sethome</li>
+            <li>🛡️ 30.500 Claim Blocks</li>
+          </ul>
+          <button class="btn-buy-store buy-trigger" data-rank="Immortal" data-price="Rp 50.000">Pilih Immortal</button>
+        </div>
+
+        <!-- Supreme -->
+        <div class="rank-card">
+          <div class="rank-header">
+            <span style="font-size:0.7rem; font-weight:800; color:var(--text-muted); letter-spacing:1px;">ELITE TIER</span>
+            <div class="rank-name">SUPREME</div>
+            <div class="rank-price">Rp 100.000</div>
+          </div>
+          <ul class="rank-features">
+            <li>⚡ <strong>Commands:</strong> /enchant, /potion, /beezooka</li>
+            <li>📦 Kit Supreme Vault Master</li>
+            <li>🔒 15x Player Vaults (/pv)</li>
+            <li>🚩 35x Sethome</li>
+            <li>🛡️ 40.000 Claim Blocks</li>
+          </ul>
+          <button class="btn-buy-store buy-trigger" data-rank="Supreme" data-price="Rp 100.000">Pilih Supreme</button>
+        </div>
+
+        <!-- Eclipse -->
+        <div class="rank-card" style="border-color: var(--accent-purple);">
+          <div class="rank-header">
+            <span style="font-size:0.7rem; font-weight:800; color:var(--accent-purple); letter-spacing:1px;">ULTIMATE TIER</span>
+            <div class="rank-name">ECLIPSE</div>
+            <div class="rank-price">Rp 180.000</div>
+          </div>
+          <ul class="rank-features">
+            <li>⚡ <strong>Commands:</strong> /weather, /time set, /tp</li>
+            <li>📦 Ultimate God Kit & Accessories</li>
+            <li>🔒 20x Player Vaults (/pv)</li>
+            <li>🚩 45x Sethome</li>
+            <li>🛡️ 55.000 Claim Blocks</li>
+          </ul>
+          <button class="btn-buy-store buy-trigger" style="background:var(--accent-purple); color:#fff;" data-rank="Eclipse" data-price="Rp 180.000">Ambil Eclipse</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-flex">
+      <div>
+        <strong style="color:var(--text-primary); font-family:var(--font-title);">STARFALL MC NETWORK</strong>
+        <p style="margin-top:4px;">Server Survival Economy Minecraft Terpercaya di Indonesia.</p>
+      </div>
+      <div>
+        <p>&copy; 2026 Starfall MC Network. Not affiliated with Mojang Studios / Microsoft.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-backdrop" id="storeModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      <h2 style="font-family:var(--font-title); font-size:1.4rem; margin-bottom:4px; color:var(--text-primary);">Konfirmasi Pesanan</h2>
+      <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:20px;">Isi username Minecraft kamu sebelum lanjut ke WhatsApp Admin.</p>
+
+      <div class="summary-card">
+        <div class="summary-item">
+          <span>Item Rank:</span>
+          <strong id="modalRankName" style="color:var(--text-primary);">-</strong>
+        </div>
+        <div class="summary-item" style="margin-top:6px;">
+          <span>Total Harga:</span>
+          <strong id="modalRankPrice" style="color:var(--primary-cyan);">-</strong>
+        </div>
+      </div>
+
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="mcUsername">Username / In-Game Name (IGN)</label>
+          <input type="text" id="mcUsername" placeholder="Contoh: Alex_Craft99" autocomplete="off">
+          <div class="field-error-notice" id="usernameError"></div>
+        </div>
+
+        <button type="submit" class="btn-wa-submit">Lanjut Pembayaran via WhatsApp 🚀</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-notice" id="toastNotice"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
