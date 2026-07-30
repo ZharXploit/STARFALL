@@ -30,8 +30,8 @@
   
   --overlay-gradient: linear-gradient(
     180deg,
-    rgba(7, 9, 14, 0.2) 0%,
-    rgba(7, 9, 14, 0.4) 60%,
+    rgba(7, 9, 14, 0.4) 0%,
+    rgba(7, 9, 14, 0.7) 60%,
     #07090e 100%
   );
 }
@@ -54,8 +54,8 @@ body.light-mode {
   
   --overlay-gradient: linear-gradient(
     180deg,
-    rgba(240, 244, 249, 0.2) 0%,
-    rgba(240, 244, 249, 0.4) 60%,
+    rgba(240, 244, 249, 0.65) 0%,
+    rgba(240, 244, 249, 0.85) 60%,
     #f0f4f9 100%
   );
 }
@@ -309,6 +309,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--bg-dark);
 }
 
 .hero-video {
@@ -323,6 +324,7 @@ body {
   transform: translate(-50%, -50%);
   object-fit: cover;
   pointer-events: none;
+  transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
 .hero-overlay {
@@ -331,6 +333,17 @@ body {
   width: 100%; height: 100%;
   z-index: 2;
   background: var(--overlay-gradient);
+  transition: background 0.3s ease;
+}
+
+/* Penyesuaian Video & Overlay Khusus Mode Terang */
+body.light-mode .hero-video {
+  filter: brightness(1.15) contrast(0.9);
+  opacity: 0.55;
+}
+
+body.light-mode .hero-overlay {
+  backdrop-filter: blur(1px);
 }
 
 .hero-content {
@@ -353,7 +366,11 @@ body {
   font-family: var(--font-title);
   font-weight: 800;
   color: var(--text-primary);
-  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+body.light-mode .hero-title {
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
 }
 
 .highlight-cyan {
@@ -445,7 +462,7 @@ main { flex: 1; }
 }
 
 /* ==========================================================================
-   RANK STORE KATALOG & CARDS (BAGIAN YANG HILANG)
+   RANK STORE KATALOG & CARDS
    ========================================================================== */
 .ranks-grid {
   display: grid;
@@ -614,7 +631,8 @@ main { flex: 1; }
   transition: opacity 0.2s ease;
 }
 
-.modal-backdrop.open {
+.modal-backdrop.open,
+.modal-backdrop.active {
   opacity: 1;
   pointer-events: auto;
 }
