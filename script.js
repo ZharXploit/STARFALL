@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
           onlinePlayerCount.innerHTML = `● Server Maintenance / Offline`;
         }
       } catch (err) {
-        onlinePlayerCount.innerHTML = `● play.starfallsmp.my.id`;
+        onlinePlayerCount.innerHTML = `● play.starfallsmp.my.id:25010`;
       }
     }
 
