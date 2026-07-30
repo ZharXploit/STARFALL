@@ -1,15 +1,36 @@
 /**
  * STARFALL NETWORK - Official Interactive Script
- * Fixed for Theme Toggle & Mobile Navigation across all pages.
+ * Fixed for Theme Toggle, Dynamic Video Switcher & Safe Multi-Page Execution
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ==========================================================================
-     1. THEME TOGGLE (DARK / LIGHT MODE)
+     1. THEME TOGGLE (DARK / LIGHT MODE & VIDEO SWITCHER)
      ========================================================================== */
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const themeIcon = document.getElementById('themeIcon');
+  const heroVideo = document.getElementById('heroVideo');
+  const videoSource = document.getElementById('videoSource');
+
+  // File video sesuai struktur project kamu
+  const DARK_VIDEO = 'background.mp4';
+  const LIGHT_VIDEO = 'background-light.mp4';
+
+  // Helper function untuk mengganti sumber video dengan aman
+  function switchVideoSource(targetVideoSrc) {
+    if (heroVideo && videoSource) {
+      // Cek apakah video yang aktif saat ini berbeda dari target
+      if (!videoSource.src.endsWith(targetVideoSrc)) {
+        videoSource.src = targetVideoSrc;
+        heroVideo.load(); // Reload elemen video dengan file baru
+        heroVideo.play().catch((err) => {
+          // Fallback jika browser memblokir play otomatis
+          console.warn('Autoplay terblokir oleh browser:', err);
+        });
+      }
+    }
+  }
 
   if (themeToggleBtn && themeIcon) {
     // Cek tema tersimpan di localStorage, default ke 'dark'
@@ -18,12 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedTheme === 'light') {
       document.body.classList.add('light-mode');
       themeIcon.textContent = '☀️';
+      switchVideoSource(LIGHT_VIDEO);
     } else {
       document.body.classList.remove('light-mode');
       themeIcon.textContent = '🌙';
+      switchVideoSource(DARK_VIDEO);
     }
 
-    // Toggle Tema saat tombol diklik
+    // Toggle Tema & Switch Video saat tombol diklik
     themeToggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('light-mode');
       const isLight = document.body.classList.contains('light-mode');
@@ -31,6 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
       themeIcon.textContent = isLight ? '☀️' : '🌙';
       localStorage.setItem('starfall_theme', isLight ? 'light' : 'dark');
       
+      // Ganti Video Background ke versi yang sesuai
+      switchVideoSource(isLight ? LIGHT_VIDEO : DARK_VIDEO);
+
       showToast(isLight ? 'Mode Terang Diaktifkan ☀️' : 'Mode Gelap Diaktifkan 🌙');
     });
   }
@@ -117,9 +143,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (modalRankName) modalRankName.textContent = selectedRank;
       if (modalRankPrice) modalRankPrice.textContent = selectedPrice;
       if (mcUsernameInput) mcUsernameInput.value = '';
-      if (usernameError) usernameError.textContent = '';
+      if (usernameError) {
+        usernameError.textContent = '';
+        usernameError.style.display = 'none';
+      }
 
-      if (storeModal) storeModal.classList.add('active');
+      if (storeModal) {
+        storeModal.classList.add('active');
+        storeModal.classList.add('open');
+      }
     });
   });
 
@@ -127,11 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (modalCloseBtn && storeModal) {
     modalCloseBtn.addEventListener('click', () => {
       storeModal.classList.remove('active');
+      storeModal.classList.remove('open');
     });
 
     storeModal.addEventListener('click', (e) => {
       if (e.target === storeModal) {
         storeModal.classList.remove('active');
+        storeModal.classList.remove('open');
       }
     });
   }
@@ -143,12 +177,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const username = mcUsernameInput ? mcUsernameInput.value.trim() : '';
 
       if (!username) {
-        if (usernameError) usernameError.textContent = 'Harap masukkan Username Minecraft kamu!';
+        if (usernameError) {
+          usernameError.textContent = 'Harap masukkan Username Minecraft kamu!';
+          usernameError.style.display = 'block';
+        }
         return;
       }
 
       if (username.length < 3) {
-        if (usernameError) usernameError.textContent = 'Username minimal 3 karakter!';
+        if (usernameError) {
+          usernameError.textContent = 'Username minimal 3 karakter!';
+          usernameError.style.display = 'block';
+        }
         return;
       }
 
@@ -161,7 +201,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const waUrl = `https://wa.me/${adminPhone}?text=${encodeURIComponent(message)}`;
       
-      if (storeModal) storeModal.classList.remove('active');
+      if (storeModal) {
+        storeModal.classList.remove('active');
+        storeModal.classList.remove('open');
+      }
       window.open(waUrl, '_blank');
     });
   }
